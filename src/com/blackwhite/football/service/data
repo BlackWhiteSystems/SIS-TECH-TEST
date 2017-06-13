@@ -1,0 +1,104 @@
+package com.blackwhite.football.service.data;
+
+import java.time.LocalDate;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
+/**
+ * 
+ * @author T Price
+ * @copyright: 2017 Black & White Systems Ltd
+ * @version: 1
+ * 
+ * Basic FootballTeam POJO 
+ * Creation date will be transmitted as Year, Month and Day (to prevent formatting issues)
+ * but can get read as a LocalDate
+ */
+
+public final class FootballTeam {
+	
+	private String name = "";
+	private String city = "";
+	private String owner = "";
+	private String competition = "";
+	private Integer stadiumCapacity = null;
+	private Integer noOfPlayers = null;
+	private Integer creationYear = null;
+	private Integer creationMonth = null;
+	private Integer creationDay = null;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getOwner() {
+		return owner;
+	}
+	public void setOwner(String owner) {
+		this.owner = owner;
+	}
+	public String getCompetition() {
+		return competition;
+	}
+	public void setCompetition(String competition) {
+		this.competition = competition;
+	}
+	public Integer getStadiumCapacity() {
+		return stadiumCapacity;
+	}
+	public void setStadiumCapacity(Integer stadiumCapacity) {
+		this.stadiumCapacity = stadiumCapacity;
+	}
+	public Integer getNoOfPlayers() {
+		return noOfPlayers;
+	}
+	public void setNoOfPlayers(Integer noOfPlayers) {
+		this.noOfPlayers = noOfPlayers;
+	}
+	
+	@JsonIgnore
+	public LocalDate getCreationDate() {
+		return LocalDate.of(creationYear, creationMonth, creationDay);
+	}
+	public Integer getCreationYear() {
+		return creationYear;
+	}
+	public void setCreationYear(Integer creationYear) {
+		this.creationYear = creationYear;
+	}
+	public Integer getCreationMonth() {
+		return creationMonth;
+	}
+	public void setCreationMonth(Integer creationMonth) {
+		this.creationMonth = creationMonth;
+	}
+	public Integer getCreationDay() {
+		return creationDay;
+	}
+	public void setCreationDay(Integer creationDay) {
+		this.creationDay = creationDay;
+	}
+	
+	public FootballTeam copy() {
+		FootballTeam copy = new FootballTeam();
+		copy.name = this.name;
+		copy.city = this.city;
+		copy.owner = this.owner;
+		copy.stadiumCapacity = this.stadiumCapacity;
+		copy.competition = this.competition;
+		copy.noOfPlayers = this.noOfPlayers;
+		copy.creationYear = this.creationYear;
+		copy.creationMonth = this.creationMonth;
+		copy.creationDay = this.creationDay;
+		return copy;
+	}
+
+}
